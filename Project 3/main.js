@@ -67,3 +67,59 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
+// Color selection
+const colorItems = [];
+for (let i = 1; i <= 5; i++) {
+  const colorItem = document.getElementById(`product__color_${i}`);
+  if (colorItem) {
+    colorItems.push(colorItem);
+  }
+}
+const selectedColor = document.getElementById("selected-color");
+
+colorItems.forEach((colorItem) => {
+  colorItem.addEventListener("click", () => {
+    colorItems.forEach((item) => {
+      item.classList.remove("selected");
+      item.style.border = "none"; 
+    });
+    colorItem.classList.add("selected");
+    colorItem.style.border = "2px solid white"; 
+  });
+});
+
+// Size selection
+const sizeItems = [];
+for (let i = 1; i <= 3; i++) {
+  const sizeItem = document.getElementById(`product__size_${i}`);
+  if (sizeItem) {
+    sizeItems.push(sizeItem);
+  }
+}
+const selectedSize = document.getElementById("selected-size");
+
+sizeItems.forEach((sizeItem) => {
+  sizeItem.addEventListener("click", () => {
+    sizeItems.forEach((item) => item.classList.remove("selected"));
+    sizeItem.classList.add("selected");
+    selectedSize.textContent = sizeItem.textContent;
+  });
+}
+);
+// Quantity selection
+const quantityInput = document.getElementById("product__quantity");
+const decreaseBtn = document.getElementById("decrease-btn");
+const increaseBtn = document.getElementById("increase-btn");
+
+decreaseBtn.addEventListener("click", () => {
+  if (quantityInput.value > 1) {
+    quantityInput.value = parseInt(quantityInput.value) - 1;
+  }
+}
+);
+
+increaseBtn.addEventListener("click", () => {
+  quantityInput.value = parseInt(quantityInput.value) + 1;
+}
+);
+
