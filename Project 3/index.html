@@ -71,7 +71,15 @@
               <p>Choose your own sizes</p>
 			  <div>
 			  </div>
-              <h6>S/ M/ L/ XL/ XXL</h6>
+            <div>
+              <div class="product__sizes" style="display: flex; flex-direction: row">
+                <div id="product__size_1" style="background-color: none; color: #fff; border-radius: 10px; border: 1px solid white; width: 4rem; height: 3rem; display: flex; align-items: center; justify-content: center;">S</div>
+                <div id="product__size_2" style="background-color: none; color: #fff; border-radius: 10px; border: 1px solid white; width: 4rem; height: 3rem; display: flex; align-items: center; justify-content: center;">M</div>
+                <div id="product__size_3" style="background-color: none; color: #fff; border-radius: 10px; border: 1px solid white; width: 4rem; height: 3rem; display: flex; align-items: center; justify-content: center;">L</div>
+                <div id="product__size_4" style="background-color: none; color: #fff; border-radius: 10px; border: 1px solid white; width: 4rem; height: 3rem; display: flex; align-items: center; justify-content: center;">XL</div>
+                <div id="product__size_5" style="background-color: none; color: #fff; border-radius: 10px; border: 1px solid white; width: 4rem; height: 3rem; display: flex; align-items: center; justify-content: center;">XXL</div>
+              </div>
+            </div>
             </div>
             <div class="product__card">
               <h4>Colors</h4>
@@ -85,6 +93,30 @@
                 <div id="product__color_4"></div>
                 <div id="product__color_5"></div>
               </div>
+          
+            <div class="product__card">
+              <h4>Amount</h4>
+               <p>Choose your amount</p>
+            </div>
+              <div class="quantity-selector" style="display: flex; flex-direction: row;">
+                <button class="decrease-btn" style="background-color: #000; color: #fff; border-radius: 10px; border: 1px solid white; width: 4rem; height: 3rem; display: flex; align-items: center; justify-content: center;">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" style="background-color: none; color: #000; border-radius: 10px; border: 1px solid white; width: 4rem; height: 3rem; text-align: center;" />
+                <button class="increase-btn"style="background-color: #000; color: #fff; border-radius: 10px; border: 1px solid white; width: 4rem; height: 3rem; display: flex; align-items: center; justify-content: center;">+</button>
+              </div>
+
+              <script>
+                document.querySelector('.decrease-btn').addEventListener('click', function() {
+                  const input = document.querySelector('.quantity-input');
+                  if (input.value > 1) {
+                    input.value = parseInt(input.value) - 1;
+                  }
+                });
+
+                document.querySelector('.increase-btn').addEventListener('click', function() {
+                  const input = document.querySelector('.quantity-input');
+                  input.value = parseInt(input.value) + 1;
+                });
+              </script>
           <a href="#store"><u>Learn More</u></a>
             </div>
           </div>
@@ -110,13 +142,6 @@
               <h4>Denim Pants with Black Patch Design</h4>
               <img src="assets/store-1.jpg" alt="store" />
        
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="store__card">
-              <h4>Pleated Bomber Jacket</h4>
-              <img src="assets/store-2.jpg" alt="store" />
-             
             </div>
           </div>
           <div class="swiper-slide">

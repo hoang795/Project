@@ -2,12 +2,12 @@ const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 const menuBtnIcon = menuBtn.querySelector("i");
 
-// menuBtn.addEventListener("click", (e) => {
-//   navLinks.classList.toggle("open");
+menuBtn.addEventListener("click", (e) => {
+  navLinks.classList.toggle("open");
 
-//   const isOpen = navLinks.classList.contains("open");
-//   menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
-// });
+  const isOpen = navLinks.classList.contains("open");
+  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+});
 
 navLinks.addEventListener("click", (e) => {
   navLinks.classList.remove("open");
@@ -90,7 +90,7 @@ colorItems.forEach((colorItem) => {
 
 // Size selection
 const sizeItems = [];
-for (let i = 1; i <= 3; i++) {
+for (let i = 1; i <= 5; i++) {
   const sizeItem = document.getElementById(`product__size_${i}`);
   if (sizeItem) {
     sizeItems.push(sizeItem);
@@ -100,12 +100,21 @@ const selectedSize = document.getElementById("selected-size");
 
 sizeItems.forEach((sizeItem) => {
   sizeItem.addEventListener("click", () => {
-    sizeItems.forEach((item) => item.classList.remove("selected"));
-    sizeItem.classList.add("selected");
-    selectedSize.textContent = sizeItem.textContent;
+    sizeItems.forEach((item) => {
+      item.classList.remove("selected_size");
+      item.style.backgroundColor = "";
+      item.style.color = "white";
+      item.style.border = "1px solid white";
+    });
+    sizeItem.classList.add("selected_size");
+    if (selectedSize) {
+      selectedSize.textContent = sizeItem.textContent;
+    }
+    sizeItem.style.backgroundColor = "white";
+    sizeItem.style.color = "black";
+    sizeItem.style.border = "none";
   });
-}
-);
+});
 // Quantity selection
 const quantityInput = document.getElementById("product__quantity");
 const decreaseBtn = document.getElementById("decrease-btn");
